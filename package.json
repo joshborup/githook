@@ -5,8 +5,10 @@
   "main": "server/index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-x-hub": "^1.0.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
