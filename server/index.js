@@ -2,15 +2,17 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const bodyParser = require('body-parser');
-const exec = require('child_process').exec
+const exec = require('child_process').exec;
+const verifyGithubWebhook = require('verify-github-webhook');
+require('dotenv').config();
 
 app.use(bodyParser.json());
 
 app.use(express.static(`${__dirname}/../build`));
-
 app.post('/testhook', (req, res) => {
 
-    console.log(req.body)
+    console.log(req.get('X-Hub-Signature'))
+    
 
     if(req.body.sender  && req.body.sender.login === 'joshborup'){
         exec('npm run build',

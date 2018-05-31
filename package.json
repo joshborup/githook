@@ -2,13 +2,15 @@
   "name": "githook",
   "version": "0.1.0",
   "private": true,
-  "main":"server/index.js",
+  "main": "server/index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "verify-github-webhook": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
