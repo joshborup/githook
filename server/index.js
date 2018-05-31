@@ -11,22 +11,19 @@ app.use(bodyParser.json());
 
 app.use(express.static(`${__dirname}/../build`));
 app.post('/testhook', (req, res) => {
+  
+    console.log(req.isXHub && req.isXHubValid())
 
     if(req.isXHub && req.isXHubValid()){
-        exec('npm run build',
-        function(err, stdout, stderr) {
-            if (err){
-                 throw err;
-            }else{
-                console.log('AEEE YERAH');
-                res.status(200).send('hit');
-            }
-        });
-    }else {
-        res.status(401).send('unauthorized');
-    }
+        exec('npm run build')
+        console.log('success')
+        res.json({ success: 'X-Hub Is Valid' });  
+    } else {
+        console.log('failed')
+        res.status(400).json({ error: 'X-Hub Is Invalid' });
+    }     
 })
-
 
 const port = 4000;
 app.listen(port, ()=> console.log(`running on port ${4000}`))
+
