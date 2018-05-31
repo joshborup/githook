@@ -9,12 +9,13 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`));
 
 app.post('/testhook', (req, res) => {
-    console.log(req.body);
-    exec('npm run build',
-      function(err, stdout, stderr) {
-        if (err) throw err;
-        else res.status(200).send('hit');
-    });    
+    if(req.body.sender.login === 'joshborup'){
+        exec('npm run build',
+        function(err, stdout, stderr) {
+            if (err) throw err;
+            else res.status(200).send('hit');
+        }); 
+    }   
 })
 
 const port = 4000;
