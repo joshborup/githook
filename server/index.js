@@ -15,6 +15,9 @@ app.post('/testhook', (req, res) => {
             if (err) throw err;
             else res.status(200).send('hit');
         }); 
+    } else {
+        console.log('not authorized')
+        res.status(401).send('unauthorized!')
     }   
 })
 
