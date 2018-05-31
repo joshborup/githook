@@ -11,8 +11,10 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`));
 app.post('/testhook', (req, res) => {
 
-    console.log(verifyGithubWebhook.default(req.get('X-Hub-Signature'), JSON.stringify(req.body), process.env.SECRET_TOKEN))
-    
+    console.log(req.get('X-Hub-Signature').split('=')[1])
+
+    console.log(verifyGithubWebhook.default([req.get('X-Hub-Signature').split('=')[1]], JSON.stringify(req.body), process.env.SECRET_TOKEN))
+
         exec('npm run build',
         function(err, stdout, stderr) {
             if (err) throw err;
