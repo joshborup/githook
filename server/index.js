@@ -3,9 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 
 
-app.get('/testhook', (req, res) => {
+app.post('/testhook', (req, res) => {
     console.log('hit');
-    res.send('hit')
+    res.status(200).send('hit')
 })
 
 const port = 4000;
