@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`));
 app.post('/testhook', (req, res) => {
 
-    console.log(verifyGithubWebhook.default(req.get('X-Hub-Signature'), req.body, process.env.SECRET_TOKEN))
+    console.log(verifyGithubWebhook.default(req.get('X-Hub-Signature'), JSON.stringify(req.body), process.env.SECRET_TOKEN))
     
 
     if(req.body.sender  && req.body.sender.login === 'joshborup'){
