@@ -4,10 +4,12 @@ const path = require('path')
 const bodyParser = require('body-parser');
 const exec = require('child_process').exec
 
+app.use(bodyParser.json());
+
 app.use(express.static(`${__dirname}/../build`));
 
 app.post('/testhook', (req, res) => {
-    console.log('your just pushed your file!');
+    console.log(req.body);
     exec('npm run build',
       function(err, stdout, stderr) {
         if (err) throw err;
