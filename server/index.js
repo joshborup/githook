@@ -13,17 +13,11 @@ app.post('/testhook', (req, res) => {
 
     console.log(verifyGithubWebhook.default(req.get('X-Hub-Signature'), JSON.stringify(req.body), process.env.SECRET_TOKEN))
     
-
-    if(req.body.sender  && req.body.sender.login === 'joshborup'){
         exec('npm run build',
         function(err, stdout, stderr) {
             if (err) throw err;
             else res.status(200).send('hit');
-        }); 
-    } else {
-        console.log('not authorized')
-        res.status(401).send('unauthorized!')
-    }   
+        });
 })
 
 const port = 4000;
