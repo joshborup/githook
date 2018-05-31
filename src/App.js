@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img src='https://pixabay.com/en/thumb-success-successful-fan-faust-328420/'/>
+        <img src='https://cdn.pixabay.com/photo/2014/04/20/12/30/thumb-328420_960_720.jpg'/>
       </div>
     );
   }
