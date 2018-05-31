@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 
 app.post('/testhook', (req, res) => {
-    console.log('hit');
+    console.log('your just pushed your file!');
     res.status(200).send('hit')
 })
 
