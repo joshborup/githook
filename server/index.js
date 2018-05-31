@@ -9,7 +9,10 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`));
 
 app.post('/testhook', (req, res) => {
-    if(req.body.sender.login === 'joshborup'){
+
+    console.log(req.body)
+
+    if(req.body.sender  && req.body.sender.login === 'joshborup'){
         exec('npm run build',
         function(err, stdout, stderr) {
             if (err) throw err;
