@@ -2,7 +2,7 @@ const {exec} = require('child_process');
 
 function commandLinePromise(){
     return new Promise((resolve, reject) => {
-        exec('ps aux', (err, stdout, stderr)=> {
+        exec('git pull', (err, stdout, stderr)=> {
             if(err){
                 reject(err)
             }else{
