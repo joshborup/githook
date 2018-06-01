@@ -15,8 +15,8 @@ app.post('/testhook', (req, res) => {
     console.log(req.isXHub && req.isXHubValid())
 
     if(req.isXHub && req.isXHubValid()){
-        exec('npm run build')
-        console.log('success')
+        exec('./test.sh');
+        console.log('success');
         res.json({ success: 'X-Hub Is Valid' });  
     } else {
         console.log('failed')
